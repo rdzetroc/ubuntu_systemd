@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 ENV container docker
 RUN apt-get update -y && apt-get clean all
-RUN apt-get install systemd -y && apt-get clean all && 
+RUN apt-get install systemd -y && apt-get clean all; 
 (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); 
 rm -f /lib/systemd/system/multi-user.target.wants/*;
 rm -f /etc/systemd/system/*.wants/*;
